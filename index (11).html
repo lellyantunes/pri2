@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposta - Comexar Brasil × Pri Santos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15181d;
+    --ink-soft:#4a505a;
+    --line:#d5d9df;
+    --base:#eef0f3;
+    --panel:#ffffff;
+    --orange:#f07b00;
+    --orange-deep:#c96400;
+    --slate:#2b3440;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *,*::before,*::after{box-sizing:inherit}
+  html{scroll-padding-top:env(safe-area-inset-top,0px)}
+  body{
+    margin:0;background:var(--base);color:var(--ink);
+    font-family:"Work Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .prose{max-width:66ch}
+
+  /* Topo */
+  header.top{padding:28px 0;border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:19px;letter-spacing:-.01em}
+  .brand span{color:var(--orange)}
+  .top small{color:var(--ink-soft);font-size:14px}
+
+  /* Hero */
+  .hero{padding:88px 0 64px}
+  .hero h1{
+    font-size:clamp(40px,7vw,76px);line-height:1.02;letter-spacing:-.035em;
+    font-weight:800;margin:0 0 28px;max-width:14ch;
+  }
+  .hero p.lead{font-size:clamp(18px,2.2vw,21px);color:var(--ink-soft);margin:0 0 48px;max-width:58ch}
+  .meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+  .meta div{padding:16px 16px 0 0}
+  .meta dt{font-size:14px;color:var(--ink-soft)}
+  .meta dd{margin:2px 0 0;font-weight:600}
+
+  section{padding:72px 0;border-top:1px solid var(--line)}
+  h2{font-size:clamp(28px,4vw,40px);line-height:1.12;letter-spacing:-.025em;font-weight:700;margin:0 0 16px;max-width:22ch}
+  h3{font-size:20px;margin:0 0 10px;letter-spacing:-.01em}
+  .intro{color:var(--ink-soft);margin:0 0 40px}
+
+  /* Divisão de papéis: o elemento principal */
+  .lanes{display:grid;grid-template-columns:1fr 1fr 1.35fr;gap:0;border:2px solid var(--ink);background:var(--panel)}
+  .lane{padding:28px 26px 30px}
+  .lane + .lane{border-left:2px solid var(--ink)}
+  .lane .who{font-size:15px;color:var(--ink-soft);margin:0 0 4px}
+  .lane h3{font-size:24px;margin-bottom:16px}
+  .lane ul{margin:0;padding-left:18px}
+  .lane li{margin-bottom:6px}
+  .lane.us{background:var(--slate);color:#fff}
+  .lane.us .who{color:#ffb866}
+  .lane.us h3{color:#fff}
+  .lane.us li::marker{color:var(--orange)}
+
+  /* Frentes */
+  .fronts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+  .front h3{padding-top:14px;border-top:4px solid var(--orange)}
+  .front ul{margin:0;padding-left:18px;color:var(--ink)}
+  .front li{margin-bottom:8px}
+
+  /* Fora do escopo */
+  .out{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 40px;padding:0;margin:0;list-style:none}
+  .out li{padding:12px 0 12px 30px;border-bottom:1px solid var(--line);position:relative}
+  .out li::before{content:"";position:absolute;left:0;top:23px;width:16px;height:2px;background:var(--ink-soft)}
+
+  /* Dia a dia */
+  .routine{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 48px}
+  .routine p{margin:0;color:var(--ink-soft)}
+
+  /* Investimento */
+  .invest{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink);background:var(--panel)}
+  .price{padding:40px 36px;background:var(--ink);color:#fff}
+  .price .label{color:#c4c9d1;margin:0 0 8px}
+  .price .value{font-size:clamp(46px,7vw,72px);font-weight:800;letter-spacing:-.04em;line-height:1;margin:0}
+  .price .value small{font-size:.32em;font-weight:500;letter-spacing:0;color:#c4c9d1}
+  .price .terms{margin:24px 0 0;color:#dfe3e8}
+  .price .terms strong{color:#ffb866;font-weight:600}
+  .includes{padding:40px 36px}
+  .includes ul{margin:0;padding-left:18px}
+  .includes li{margin-bottom:8px}
+
+  .table-scroll{overflow-x:auto;margin-top:40px}
+  table{width:100%;border-collapse:collapse;min-width:560px;background:var(--panel)}
+  th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-size:15px;color:var(--ink-soft);font-weight:600;border-bottom:2px solid var(--ink)}
+  td:first-child{font-weight:600}
+  tr.total td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700}
+  .col-us{background:#fff4e8}
+
+  .note{margin-top:28px;padding:20px 24px;border-left:4px solid var(--orange);background:var(--panel);max-width:72ch}
+  .note p{margin:0}
+
+  /* Condições */
+  .terms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;list-style:none;margin:0;padding:0}
+  .terms-grid li{padding:14px 0;border-bottom:1px solid var(--line)}
+
+  /* CTA */
+  .cta{padding:88px 0 96px;border-top:2px solid var(--ink)}
+  .cta h2{max-width:20ch}
+  .btn{
+    display:inline-block;margin-top:24px;padding:16px 26px;background:var(--orange);color:#15181d;
+    font-weight:700;text-decoration:none;border:2px solid var(--ink);
+  }
+  .btn:hover{background:var(--orange-deep);color:#fff}
+  .signature{margin-top:48px;color:var(--ink-soft)}
+  .signature strong{color:var(--ink);display:block}
+
+  footer{padding:28px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:14px}
+
+  @media (max-width:860px){
+    .lanes{grid-template-columns:1fr}
+    .lane + .lane{border-left:none;border-top:2px solid var(--ink)}
+    .fronts{grid-template-columns:1fr;gap:32px}
+    .invest{grid-template-columns:1fr}
+    .meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .meta div{padding-bottom:12px}
+  }
+  @media (max-width:600px){
+    .out,.routine,.terms-grid{grid-template-columns:1fr}
+    .hero{padding:56px 0 48px}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">COMEXAR<span>.</span> BRASIL</div>
+    <small>Proposta comercial, setembro de 2026</small>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <h1>A estratégia já existe. Agora ela precisa rodar.</h1>
+      <p class="lead">A Case definiu o diagnóstico, a estratégia e o cronograma. A Comexar entra como operação tática: executa infraestrutura, RD Station e tracking de todas as operações da empresa, lado a lado com o seu time, durante as 36 semanas do projeto.</p>
+      <dl class="meta">
+        <div><dt>Para</dt><dd>Pri Santos</dd></div>
+        <div><dt>De</dt><dd>Comexar Brasil</dd></div>
+        <div><dt>Responsável</dt><dd>Dani Antunes</dd></div>
+        <div><dt>Validade</dt><dd>15 dias</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>Cada parte com o seu papel, sem sobreposição</h2>
+      <p class="intro prose">O projeto tem três frentes. Deixar claro quem faz o quê evita duas coisas: trabalho duplicado e custo duplicado.</p>
+      <div class="lanes">
+        <div class="lane">
+          <p class="who">Estratégia</p>
+          <h3>Case</h3>
+          <ul>
+            <li>Diagnóstico e estratégia</li>
+            <li>Cronograma semanal</li>
+            <li>Prioridades de cada semana</li>
+            <li>Análise dos resultados</li>
+          </ul>
+        </div>
+        <div class="lane">
+          <p class="who">Decisão</p>
+          <h3>Pri e time</h3>
+          <ul>
+            <li>Aprovação das entregas</li>
+            <li>Acessos às contas</li>
+            <li>Ponto focal para validações</li>
+          </ul>
+        </div>
+        <div class="lane us">
+          <p class="who">Operação tática</p>
+          <h3>Comexar</h3>
+          <ul>
+            <li>Executa o que está no cronograma da Case</li>
+            <li>Configura, integra e valida cada entrega</li>
+            <li>Mantém o padrão de pé durante todo o projeto</li>
+            <li>Documenta tudo o que foi feito</li>
+            <li>Monitora, ajusta e informa quando algo quebra</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>O que a Comexar executa</h2>
+      <p class="intro prose">As mesmas três frentes técnicas da proposta anterior, agora executadas conforme a estratégia e as prioridades definidas pela Case.</p>
+      <div class="fronts">
+        <div class="front">
+          <h3>Infraestrutura e padrão</h3>
+          <ul>
+            <li>Aplicação do padrão de nomenclatura em campanhas, formulários, listas e fluxos</li>
+            <li>Domínios e e-mail transacional com SPF, DKIM e DMARC</li>
+            <li>Instância n8n com homologação, versionamento e backup</li>
+            <li>Governança de acessos de todas as contas</li>
+            <li>Alertas de falha de integração e queda de volume de leads</li>
+          </ul>
+        </div>
+        <div class="front">
+          <h3>RD Station</h3>
+          <ul>
+            <li>Campos, tags, listas e segmentações organizados</li>
+            <li>Lead scoring e estágios de funil configurados conforme o critério definido</li>
+            <li>Fluxos de entrada, nutrição, reengajamento e pós-venda</li>
+            <li>Integrações via API e webhooks com checkout, área de membros e WhatsApp</li>
+            <li>Higiene de base: duplicidade, inativos e opt-out</li>
+          </ul>
+        </div>
+        <div class="front">
+          <h3>Tracking ponta a ponta</h3>
+          <ul>
+            <li>Padrão de UTM e gerador interno de links</li>
+            <li>GTM com camada server-side e GA4 por propriedade</li>
+            <li>Meta CAPI e demais APIs de conversão</li>
+            <li>Postback de checkout com origem preservada</li>
+            <li>Dashboards por cliente e visão consolidada da empresa, prontos para a leitura da Case</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>O que fica fora, para você não pagar duas vezes</h2>
+      <p class="intro prose">Tudo o que é estratégia já está com a Case. Por isso, estes itens da proposta anterior saíram do escopo e do preço da Comexar.</p>
+      <ul class="out">
+        <li>Setup de auditoria e diagnóstico</li>
+        <li>Definição de cronograma e prioridades</li>
+        <li>Planejamento estratégico do RD Station</li>
+        <li>Análise e recomendação sobre resultados</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Como a operação funciona no dia a dia</h2>
+      <p class="intro prose">Sem estrutura paralela. A Comexar se encaixa no rito que a Case já conduz.</p>
+      <div class="routine">
+        <div>
+          <h3>Participação na reunião semanal da Case</h3>
+          <p>Recebemos as prioridades da semana e devolvemos o status do que foi executado. Não criamos uma reunião a mais na sua agenda.</p>
+        </div>
+        <div>
+          <h3>Execução com validação</h3>
+          <p>Cada entrega é configurada, testada e enviada para aprovação do ponto focal do seu time antes de ir para produção.</p>
+        </div>
+        <div>
+          <h3>Documentação contínua</h3>
+          <p>Tudo o que for feito fica registrado, para que o seu time e a Case saibam exatamente o que existe em cada conta.</p>
+        </div>
+        <div>
+          <h3>Monitoramento com resposta em 1 dia útil</h3>
+          <p>Falhas de integração, fluxos parados e problemas de coleta são identificados e tratados dentro do SLA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Investimento</h2>
+      <p class="intro prose">Sem setup. Valor maior nos meses de implantação, que exigem dedicação mais exclusiva, e menor na sequência, até o fim das 36 semanas.</p>
+      <div class="invest">
+        <div class="price">
+          <p class="label">Operação tática</p>
+          <p class="value">R$ 9.500<small>/mês</small></p>
+          <p class="terms">Meses 1 a 3, implantação</p>
+          <p class="value" style="margin-top:24px">R$ 7.500<small>/mês</small></p>
+          <p class="terms">Meses 4 a 9, até completar as 36 semanas</p>
+          <p class="terms"><strong>Total do projeto: R$ 73.500</strong><br>Dedicação full time, sem cobrança de hora extra.</p>
+        </div>
+        <div class="includes">
+          <h3>Inclui</h3>
+          <ul>
+            <li>Execução das três frentes conforme o cronograma da Case</li>
+            <li>Manutenção do padrão durante todo o projeto</li>
+            <li>Onboarding técnico de cada novo cliente da operação, sem custo adicional</li>
+            <li>Monitoramento, ajuste e informe de falhas em integrações, entregabilidade e coleta, com SLA de 1 dia útil</li>
+                        <li>Participação na reunião semanal da Case</li>
+            <li>Documentação e playbooks entregues ao fim do projeto</li>
+          </ul>
+          <h3 style="margin-top:28px">Bônus</h3>
+          <ul>
+            <li>Auditoria mensal de qualidade do dado, com relatório de desvios e correções</li>
+            <li>Reunião quinzenal de leitura de dados com você e o seu time</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Comparado à proposta anterior</th><th>Opção B (Operação de Dados)</th><th class="col-us">Operação tática</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Setup</td><td>R$ 11.900</td><td class="col-us">Sem setup</td></tr>
+            <tr><td>Mensalidade</td><td>R$ 13.900</td><td class="col-us">R$ 9.500 (meses 1 a 3)<br>R$ 7.500 (meses 4 a 9)</td></tr>
+            <tr><td>Estratégia e leitura de dados</td><td>Comexar</td><td class="col-us">Case</td></tr>
+            <tr><td>Execução técnica</td><td>Comexar</td><td class="col-us">Comexar</td></tr>
+            <tr><td>SLA</td><td>4h úteis</td><td class="col-us">1 dia útil</td></tr>
+            <tr class="total"><td>Total em 9 meses</td><td>R$ 137.000</td><td class="col-us">R$ 73.500</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <p>A diferença de R$ 63.500 em relação à Opção B corresponde à parte estratégica que agora está com a Case. Somando as duas frentes, você tem estratégia e operação sem pagar duas vezes pelo mesmo trabalho.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Condições comerciais</h2>
+      <ul class="terms-grid">
+        <li><strong>Pagamento:</strong> a primeira mensalidade é paga na assinatura e a execução começa em seguida; as demais, a cada mês. R$ 9.500 nos meses 1 a 3 e R$ 7.500 nos meses 4 a 9.</li>
+        <li><strong>Dedicação:</strong> full time no projeto, sem cobrança de hora extra.</li>
+        <li><strong>Reajuste:</strong> nenhum durante as 36 semanas do projeto.</li>
+        <li><strong>Não incluso:</strong> verba de mídia, criativos, copy, licenças de terceiros e custos de infraestrutura (repassados a preço de custo, sem markup).</li>
+        <li><strong>Pré-requisito:</strong> acesso administrativo a todas as contas e ferramentas utilizadas nas operações.</li>
+        <li><strong>Aprovações:</strong> validações em até 2 dias úteis; depois disso, a entrega se ajusta ao próximo ciclo do cronograma.</li>
+        <li><strong>Confidencialidade:</strong> NDA mútuo junto ao contrato; tratamento de base conforme LGPD.</li>
+        <li><strong>Propriedade:</strong> fluxos, documentações, dashboards e playbooks são propriedade de Pri Santos.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="wrap">
+      <p class="signature" style="margin-top:0"><strong>Dani Antunes</strong>Responsável pela conta, Comexar Brasil</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Comexar Brasil. Infraestrutura, dados e automação.</div>
+</footer>
+
+</body>
+</html>
